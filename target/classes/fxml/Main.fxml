@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.control.TextField?>
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/2.2">
+    <!-- Header -->
+    <BorderPane fx:id="borderPane">
+        <top>
+            <VBox spacing="20">
+                <JFXToolbar>
+                    <leftItems>
+                        <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
+                            <StackPane fx:id="titleBurgerContainer">
+                                <JFXHamburger fx:id="titleBurger">
+                                    <HamburgerBackArrowBasicTransition/>
+                                </JFXHamburger>
+                            </StackPane>
+                        </JFXRippler>
+                        <Label>算式生成器</Label>
+                    </leftItems>
+                    <rightItems>
+                        <JFXRippler fx:id="optionsRippler" maskType="CIRCLE"
+                                    style="-fx-ripple-color:WHITE;">
+                            <StackPane fx:id="optionsBurger">
+                                <JFXHamburger styleClass="jfx-options-burger">
+                                </JFXHamburger>
+                            </StackPane>
+                        </JFXRippler>
+                    </rightItems>
+                </JFXToolbar>
+            </VBox>
+        </top>
+
+        <!-- Content Area -->
+        <center>
+<!--            <JFXDrawer fx:id="drawer" defaultDrawerSize="500" direction="LEFT">-->
+<!--                <styleClass>-->
+<!--                    <String fx:value="body"/>-->
+<!--                </styleClass>-->
+<!--            </JFXDrawer>-->
+<!--            <VBox maxWidth="400" maxHeight="400" spacing="10">-->
+<!--                <Label styleClass="title-label">Flat Buttons</Label>-->
+<!--                <HBox spacing="20" style="-fx-padding: 0 0 0 50;">-->
+<!--                    <JFXButton prefWidth="100" prefHeight="40" buttonType="FLAT" text="BUTTON"-->
+<!--                               style="-fx-font-size:14px;"/>-->
+<!--                    <JFXButton prefWidth="100" prefHeight="40" buttonType="FLAT" text="COLORED"-->
+<!--                               style="-fx-text-fill:#5264AE;-fx-font-size:14px;"/>-->
+<!--                    <JFXButton prefWidth="100" prefHeight="40" buttonType="FLAT" text="DISABLED"-->
+<!--                               style="-fx-font-size:14px;" disable="true"/>-->
+<!--                </HBox>-->
+
+<!--                <Label styleClass="title-label">Raised Buttons</Label>-->
+<!--                <HBox spacing="40" style="-fx-padding: 0 0 0 50;">-->
+<!--                    <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="BUTTON"-->
+<!--                               style="-fx-font-size:14px;-fx-background-color:WHITE;"/>-->
+<!--                    <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="COLORED"-->
+<!--                               style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;"/>-->
+<!--                    <JFXButton prefWidth="100" prefHeight="40" buttonType="RAISED" text="DISABLED"-->
+<!--                               style="-fx-background-color:WHITE;-fx-font-size:14px;" disable="true"/>-->
+<!--                </HBox>-->
+
+<!--                <Label styleClass="title-label">Styling Options</Label>-->
+<!--                <HBox spacing="40" style="-fx-padding: 0 0 0 50;">-->
+<!--                    <FlowPane hgap="60" style="-fx-padding:0 0 0 50">-->
+<!--                        <JFXToggleButton fx:id="btn_1" styleClass="custom-jfx-toggle-button" text="启用括号"/>-->
+<!--                        <JFXToggleButton fx:id="btn_2" styleClass="custom-jfx-toggle-button" text="启用整除" />-->
+<!--                        <JFXToggleButton fx:id="btn_3" styleClass="custom-jfx-toggle-button" text="运算符等概论出现" />-->
+<!--                    </FlowPane>-->
+<!--                </HBox>-->
+<!--            </VBox>-->
+
+            <VBox alignment="CENTER">
+                <children>
+                    <Label styleClass="title-label">运算数个数</Label>
+                    <JFXTextField fx:id="operandCountText" promptText="Type Something" text="3" style="-fx-padding: 0 0 0 20;">
+                    </JFXTextField>
+                    <Label styleClass="title-label">生成的问题数量</Label>
+                    <JFXTextField fx:id="questionCountText" id="validatedText" promptText="With validation" text="100" maxWidth="100" style="-fx-padding: 0 0 0 20;">
+                        <validators>
+                            <RequiredFieldValidator message="Input Required!">
+                                <FontIcon iconLiteral="fas-exclamation-triangle"/>
+                            </RequiredFieldValidator>
+                        </validators>
+                    </JFXTextField>
+                </children>
+                <Label styleClass="title-label">运算数范围:</Label>
+                <HBox alignment="CENTER">
+<!--                    <JFXTextField promptText="最小值" text="1" prefWidth="50" maxWidth="50" >-->
+<!--                    </JFXTextField>-->
+                    <Label style="-fx-padding: 0 0 0 20;">最小值：</Label>
+                    <TextField fx:id="minNumRange" text="1" maxWidth="100"/>
+                    <Label style="-fx-padding: 0 0 0 20;">    最大值：</Label>
+                    <TextField fx:id="maxNumRange" text="100" maxWidth="100"/>
+<!--                    <JFXTextField promptText="最大值" text="100" prefWidth="50">-->
+<!--                    </JFXTextField>-->
+                </HBox>
+                <Label styleClass="title-label">中间计算结果范围:</Label>
+                <HBox alignment="CENTER">
+                    <Label style="-fx-padding: 0 0 0 20;">最小值：</Label>
+                    <TextField fx:id="minIntermediateResultRange" text="1" maxWidth="100"/>
+                    <Label style="-fx-padding: 0 0 0 20;">    最大值：</Label>
+                    <TextField fx:id="maxIntermediateResultRange" text="100" maxWidth="100"/>
+                </HBox>
+                <Label styleClass="title-label">最终计算结果范围:</Label>
+                <HBox alignment="CENTER">
+                    <Label style="-fx-padding: 0 0 0 20;">最小值：</Label>
+                    <TextField fx:id="minFinalResultRange" text="1" maxWidth="100"/>
+                    <Label style="-fx-padding: 0 0 0 20;">    最大值：</Label>
+                    <TextField fx:id="maxFinalResultRange" text="100" maxWidth="100"/>
+                </HBox>
+
+                <Label styleClass="title-label">其他选项</Label>
+                <VBox alignment="CENTER">
+                    <JFXToggleButton fx:id="enableBracketButton" styleClass="custom-jfx-toggle-button" text="启用括号"/>
+                    <JFXToggleButton fx:id="enableExactDivisionButton" styleClass="custom-jfx-toggle-button" text="启用整除" />
+                    <JFXToggleButton fx:id="equalProbabilityButton" styleClass="custom-jfx-toggle-button" text="运算符等概论出现" />
+                </VBox>
+                <JFXButton fx:id="generateButton" prefWidth="200" prefHeight="40" buttonType="RAISED" text="生成算式"
+                           style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" alignment="CENTER"/>
+            </VBox>
+        </center>
+
+    </BorderPane>
+</StackPane>

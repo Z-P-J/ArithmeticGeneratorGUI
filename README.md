@@ -1,0 +1,2 @@
+# ArithmeticGeneratorGUI
+ ArithmeticGeneratorGUI 算式生成器GUI版

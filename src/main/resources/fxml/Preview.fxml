@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/2.2">
+    <VBox alignment="CENTER" minHeight="900">
+        <HBox alignment="CENTER">
+            <Label style="-fx-padding: 0 0 0 20;">列数：</Label>
+            <TextField fx:id="rowCountText" text="2" maxWidth="100"/>
+<!--            <Label style="-fx-padding: 0 0 0 20;"> 行数：</Label>-->
+<!--            <TextField fx:id="lineCountText" text="100" maxWidth="100"/>-->
+            <JFXToggleButton fx:id="showResultButton" styleClass="custom-jfx-toggle-button" text="显示答案" />
+        </HBox>
+        <HBox alignment="CENTER">
+            <JFXButton fx:id="generateDocButton" prefWidth="200" prefHeight="40" buttonType="RAISED" text="生成word文档"
+                       style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" alignment="CENTER"/>
+            <JFXButton fx:id="printButton" prefWidth="200" prefHeight="40" buttonType="RAISED" text="打印文档"
+                       style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" alignment="CENTER"/>
+        </HBox>
+        <TextArea fx:id="textArea" minHeight="800"/>
+    </VBox>
+</StackPane>
