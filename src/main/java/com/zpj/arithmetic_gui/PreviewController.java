@@ -99,7 +99,7 @@ public final class PreviewController {
         showResultButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                initTextArea(arithmeticBean);
+//                initTextArea(arithmeticBean);
             }
         });
 
@@ -107,12 +107,12 @@ public final class PreviewController {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 System.out.println(rowCountText.getText());
-                initTextArea(arithmeticBean);
+//                initTextArea(arithmeticBean);
             }
         });
 
         if (arithmeticBean != null) {
-            initTextArea(arithmeticBean);
+//            initTextArea(arithmeticBean);
         } else {
             generateDocButton.setDisable(true);
             printButton.setDisable(true);
@@ -126,6 +126,7 @@ public final class PreviewController {
      * @param isPrint 是否打印
      */
     private void generateDoc(ArithmeticBean arithmeticBean, boolean isPrint) {
+        long tempTime = System.currentTimeMillis();
         String docStr = getDocString(arithmeticBean);
         String filePath = String.format("D:\\%d道算术题 %s.doc", arithmeticBean.getQuestionCount(), format.format(new Date()));
         File fileObj = new File(filePath);
@@ -153,7 +154,8 @@ public final class PreviewController {
                     }
                 }
             } else {
-                showDialog("导出成功！", "文件已保存至" + filePath);
+//                System.out.println("delta_time=" + (System.currentTimeMillis() - tempTime));
+                showDialog("导出成功！", "文件已保存至" + filePath + " 用时：" + (System.currentTimeMillis() - tempTime) + "ms");
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

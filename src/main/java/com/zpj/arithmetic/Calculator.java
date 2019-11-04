@@ -59,7 +59,7 @@ public class Calculator {
      * @return 结果
      */
     public String getArithmetic() {
-        return arithmetic + " ＝ ";
+        return arithmetic + " = ";
     }
 
     /**
@@ -67,7 +67,7 @@ public class Calculator {
      * @return 结果
      */
     public String getArithmeticAndResult() {
-        return arithmetic + " ＝ " + calculate();
+        return arithmetic + " = " + calculate();
     }
 
     /**
@@ -125,9 +125,9 @@ public class Calculator {
 //                System.out.println("pushToStack222=" + operatorStack);
             } else if (operable instanceof BracketOperator) {
                 BracketOperator operator = (BracketOperator) operable;
-//                System.out.println("com.zpj.com.zpj.arithmetic.impl.BracketOperator=" + operator);
+//                System.out.println("com.zpj.arithmetic.impl.BracketOperator=" + operator);
                 if (operator.equal(BracketOperator.LEFT_BRACKET)) {
-//                    System.out.println("com.zpj.com.zpj.arithmetic.impl.BracketOperator.LEFT_BRACKET");
+//                    System.out.println("com.zpj.arithmetic.impl.BracketOperator.LEFT_BRACKET");
                     operatorStack.push(operator);
 //                    System.out.println("111operatorStack=" + operatorStack);
                 } else {

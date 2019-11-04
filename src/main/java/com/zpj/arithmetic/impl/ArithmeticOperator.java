@@ -8,8 +8,8 @@ import com.zpj.arithmetic.base.Operator;
  */
 public class ArithmeticOperator extends Operator {
 
-    public static final ArithmeticOperator ADDITION = new ArithmeticOperator("＋", 1);
-    public static final ArithmeticOperator SUBTRACTION = new ArithmeticOperator("－", 1);
+    public static final ArithmeticOperator ADDITION = new ArithmeticOperator(" + ", 1);
+    public static final ArithmeticOperator SUBTRACTION = new ArithmeticOperator(" - ", 1);
     public static final ArithmeticOperator MULTIPLICATION = new ArithmeticOperator(" × ", 2);
     public static final ArithmeticOperator DIVISION = new ArithmeticOperator(" ÷ ", 2);
     public static final ArithmeticOperator MOD = new ArithmeticOperator(" mod ", 2);

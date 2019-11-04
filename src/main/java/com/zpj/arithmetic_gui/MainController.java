@@ -130,9 +130,16 @@ public final class MainController implements EventHandler<MouseEvent> {
             AlertDialog dialog = AlertDialog.with((Stage) generateButton.getScene().getWindow());
             JFXSpinner spinner = new JFXSpinner();
             int questionCount = Integer.valueOf(questionCountText.getText()) - 1;
+            long tempTime = System.currentTimeMillis();
             Thread thread = new Thread(new ArithmeticGeneratorRunnable(new ArithmeticGenerator.OnGenerateArithmeticListener() {
+
+                long deltaTime;
+
                 @Override
                 public void onGenerate(int index, String arithmetic, String result) {
+                    if (index == questionCount) {
+                        deltaTime = System.currentTimeMillis() - tempTime;
+                    }
                     if (Thread.currentThread().isInterrupted()) {
                         return;
                     }
@@ -150,11 +157,21 @@ public final class MainController implements EventHandler<MouseEvent> {
                             @Override
                             public void run() {
                                 dialog.close();
-                                try {
-                                    new PreviewApplication().start(new Stage());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                                AlertDialog.with((Stage) generateButton.getScene().getWindow())
+                                        .setTitle("算式生成完成")
+                                        .setBody("用时：" + deltaTime + "ms")
+                                        .addActionButton("确定", new AlertDialog.OnClickListener() {
+                                            @Override
+                                            public void onClick(AlertDialog dialog, MouseEvent event) {
+                                                dialog.close();
+                                                try {
+                                                    new PreviewApplication().start(new Stage());
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        })
+                                        .show();
                             }
                         });
                     }
